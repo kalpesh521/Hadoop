@@ -1,0 +1,29 @@
+HDFS 
+
+HDFS consists of 
+Namenodes (master) : 
+- contain metadata, files, directories, number of racks, locations, and details.
+- client always interacts with name node, centralizes piece of architecture
+- HDFS's default block size is 128 MB.
+
+Datanodes(slave): Contain actual data   ,
+- DataNode performs operations like block replica creation, deletion, and replication according to the instruction of NameNode.
+- DataNode manages the data storage of the system.
+- DataNodes are arranged in racks. All the nodes in a rack are connected by a single switch,
+- Hadoop HDFS creates duplicate copies of each block. This is known as replication. provides fault tolerance
+
+HDFS Command
+
+start-all.sh  // start  all nodes
+jps
+
+hdfs  -help
+hdfs  version
+
+hdfs dfs -ls /  OR
+hadoop fs -ls /                        ------>List all the files
+hadoop fs -mkdir  /kalpesh/profile
+hdfs dfs -rm -r main.txt               ----->Remove main.txt
+hadoop fs -cat /kalpesh/main.txt
+sudo -u hdfs hadoop fs -put employee.txt     /kalpesh/profile   ---------->Local to hdfs  ...use sudo if permission denied access to write
+sudo -u hdfs hadoop fs -get /kalpesh/profile.employee.txt  home/cloudera 
